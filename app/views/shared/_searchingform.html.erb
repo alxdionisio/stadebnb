@@ -1,0 +1,8 @@
+<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :name, input_html: {value: ""} %>
+  <%= f.input :location, input_html: {value: ""} %>
+  <%= f.input :capacity, input_html: {value: ""} %>
+  <%= f.input :energy_class, input_html: {value: ""} %>
+  <%= f.input :price, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
