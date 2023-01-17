@@ -16,9 +16,11 @@ class StadiaController < ApplicationController
   def create
     @stadium = Stadium.new(stadium_params)
     @stadium.user = current_user
+    @error = "je suis passé par là"
     if @stadium.save
       redirect_to stadium_path(@stadium)
     else
+      @error = "Something went wrong"
       render :new
     end
   end
@@ -39,7 +41,7 @@ class StadiaController < ApplicationController
   private
 
   def stadium_params
-    params.require(:stadium).permit(:name, :address, :description, :price, :photo)
+    params.require(:stadium).permit(:name, :location, :capacity, :description, :energy_class, :price, :photo)
   end
 
   def set_stadium
