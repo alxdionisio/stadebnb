@@ -4,9 +4,8 @@ class Stadium < ApplicationRecord
   has_many :users, through: :bookings
 
   validates :name, presence: true
-  validates :address, presence: true
-  validates :description, presence: true
+  validates :location, presence: true
+  validates :stadium_description, presence: true
   validates :price, presence: true
-  validates :photo, presence: true
   validates :user, presence: true
 end
