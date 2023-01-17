@@ -1,0 +1,15 @@
+<h1>All stadiums available</h1>
+
+<% @stadia.each do |stadium| %>
+<ul>
+  <li>
+    <%=stadium.name%>
+    <%=stadium.location%>
+    <%=stadium.capacity%>
+    <%=stadium.energy_class%>
+    <%=stadium.price%>
+  </li>
+</ul>
+<% end %>
+
+<%= link_to "New stadium", new_stadium_path %>
