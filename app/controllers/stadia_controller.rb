@@ -6,7 +6,7 @@ class StadiaController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
+    @stadium = Stadium.find(params[:id])
   end
 
   def new
