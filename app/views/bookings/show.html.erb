@@ -1,0 +1,18 @@
+<div class="container-booking">
+  <h2>Congratulations, you've just booked your stadium!</h2>
+  <h3>Here are your booking details</h3>
+
+  <div class="booking-dates">
+    <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+    <p><strong>End Date:</strong> <%= @booking.end_date %></p>
+  </div>
+
+  <div class="booking-details">
+    <p><strong>Stadium:</strong> <%= @booking.stadium.name %></p>
+    <p><strong>Address:</strong> <%= @booking.stadium.address %></p>
+    <p><strong>City:</strong> <%= @booking.stadium.city %></p>
+    <p><strong>Country:</strong> <%= @booking.stadium.country %></p>
+    <p><strong>Price:</strong> <%= @booking.stadium.price %></p>
+    <p><strong>Total Price:</strong> <%= @booking.total_price %></p>
+  </div>
+</div>
