@@ -1,9 +1,12 @@
 <h1><strong><%= @stadium.name %> - <%= @stadium.location %></strong></h1><br>
 
 <%= @stadium.stadium_description %><br>
-<% @stadium.pictures.each do |photo| %>
+
+<% @stadium.pictures.each do |picture| %>
   <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+<br>
+<br>
 
 <ul>
   <li>
