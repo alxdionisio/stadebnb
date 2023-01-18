@@ -6,5 +6,9 @@
 <%= f.input :capacity %>
 <%= f.input :energy_class %>
 <%= f.input :price %>
+<%= f.input :pictures, as: :file, input_html: { multiple: true } %>
 <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
+<br>
+<br>
+<%= link_to "Back to Stadiums list", stadia_path %>

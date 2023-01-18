@@ -1,18 +1,24 @@
-<h1>Stadium details</h1>
+<h1><strong><%= @stadium.name %> - <%= @stadium.location %></strong></h1><br>
+
+<%= @stadium.stadium_description %><br>
+<% @stadium.pictures.each do |photo| %>
+  <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <ul>
   <li>
-    <%= @stadium.name %>
+    Capicity : <%= @stadium.capacity %> persons
   </li>
   <li>
-    <%= @stadium.location %>
+    Energy class : <%= @stadium.energy_class %>
   </li>
   <li>
-    <%= @stadium.capacity %>
-  </li>
-  <li>
-    <%= @stadium.energy_class %>
-  </li>
-  <li>
-    <%= @stadium.price %>
+    <strong><%= @stadium.price %></strong> € per day
   </li>
 </ul>
+
+<br>
+<strong><%= link_to "Book this stadium !", stadium_booking_path(@stadium) %></strong>
+<br>
+<br>
+<%= link_to "Back to Stadiums list", stadia_path %>
