@@ -1,10 +1,25 @@
-<h1>StadiumBnb</h1>
+<h1>StadiumBnb - All stadiums available</h1><br>
+
+<%= simple_form_for :search, method: :get,
+                             defaults: { required: false } do |f| %>
+  <%= f.input :search, label: "Search by location or description :",
+                       input_html: { name: 'search',
+                                     value: params.dig(:search) } %>
+  <%= f.input :max_price, label: "Price per day max :",
+                          required: false,
+                          input_html: { type: :number,
+                                        name: :max_price,
+                                        value: params.dig(:max_price) } %>
+  <%= f.input :start_date, as: :date, label: "Start Date", input_html: { min: Date.today } %>
+  <%= f.input :end_date, as: :date, label: "End Date", input_html: { min: Date.today } %>
+  <%= f.submit "Search my stadium" %>
+<% end %><br><br>
 
 <div style="width: 800px; height: 400px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+</div><br><br>
 
 <% @stadia.each do |stadium| %>
   <strong><%=stadium.name.upcase%></strong><br><br>
