@@ -27,7 +27,7 @@
 </div>
 
 <br>
-<strong><%= link_to "Book this stadium !", stadium_booking_path(@stadium) %></strong>
+<strong><%= link_to "Book this stadium !", new_stadium_booking_path(@stadium) %></strong>
 <br>
 <br>
 <%= link_to "Delete my stadium", stadium_path(@stadium), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>

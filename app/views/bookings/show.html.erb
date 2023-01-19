@@ -9,10 +9,16 @@
 
   <div class="booking-details">
     <p><strong>Stadium:</strong> <%= @booking.stadium.name %></p>
-    <p><strong>Address:</strong> <%= @booking.stadium.address %></p>
-    <p><strong>City:</strong> <%= @booking.stadium.city %></p>
-    <p><strong>Country:</strong> <%= @booking.stadium.country %></p>
+    <p><strong>Location:</strong> <%= @booking.stadium.location %></p>
+    <p><strong>Capacity:</strong> <%= @booking.stadium.capacity %></p>
+    <p><strong>Energy Class:</strong> <%= @booking.stadium.energy_class %></p>
     <p><strong>Price:</strong> <%= @booking.stadium.price %></p>
-    <p><strong>Total Price:</strong> <%= @booking.total_price %></p>
   </div>
+
+  <div class="booking-total">
+    <p><strong>Total Price:</strong> <%= @booking.total_price %></p>
+
+    <div class="booking-buttons">
+      <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
+      <%= link_to "Back to My Bookings", bookings_path, class: "btn btn-primary" %>
 </div>
