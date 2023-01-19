@@ -26,11 +26,9 @@ class StadiaController < ApplicationController
   def create
     @stadium = Stadium.new(stadium_params)
     @stadium.user = current_user
-    @error = "je suis passé par là"
     if @stadium.save
       redirect_to stadium_path(@stadium)
     else
-      @error = "Something went wrong"
       render :new
     end
   end

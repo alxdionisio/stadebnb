@@ -6,11 +6,16 @@ class PagesController < ApplicationController
 
   def dashboard
     @bookings = current_user.bookings
-    @stadia = current_user.stadia
+    @stadia = current_user.stadiums
+    @user = current_user
   end
 
   def profile
     @user = current_user
+  end
+
+  def booking
+    @booking = Booking.find(params[:id])
   end
 
   def settings
