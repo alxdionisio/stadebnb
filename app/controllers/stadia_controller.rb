@@ -35,13 +35,13 @@ class StadiaController < ApplicationController
 
   def destroy
     @stadium.destroy
-    redirect_to stadia_path
+    redirect_to stadia_path(@stadium), status: :see_other
   end
 
   private
 
   def stadium_params
-    params.require(:stadium).permit(:name, :location, :capacity, :description, :energy_class, :price, :photo)
+    params.require(:stadium).permit(:name, :location, :capacity, :stadium_description, :energy_class, :price, pictures: [])
   end
 
   def set_stadium

@@ -1,16 +1,17 @@
-<h1>All stadiums available</h1>
+<h1>StadiumBnb</h1>
 
 <% @stadia.each do |stadium| %>
-<ul>
-  <li>
-    <%=stadium.name%>
-    <%=stadium.location%>
-    <%=stadium.stadium_description%>
-    <%=stadium.capacity%>
-    <%=stadium.energy_class%>
-    <%=stadium.price%>
-  </li>
-</ul>
+  <strong><%=stadium.name.upcase%></strong><br><br>
+  <% stadium.pictures.each do |picture| %>
+    <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
+  <% end %><br><br>
+  Location : <%=stadium.location%><br>
+  <%# <%=stadium.stadium_description %>
+  Capacity : <%=stadium.capacity%><br>
+  Energy Class : <%=stadium.energy_class%><br>
+  Price per day : <%=stadium.price%><br>
+  <%= link_to "More informations", stadium_path(stadium) %><br><br><br>
 <% end %>
 
-<%= link_to "New stadium", new_stadium_path %>
+
+<strong><%= link_to "ADD MY STADIUM !", new_stadium_path %></strong>

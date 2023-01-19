@@ -1,18 +1,29 @@
-<h1>Stadium details</h1>
+<h1><strong><%= @stadium.name %> - <%= @stadium.location %></strong></h1><br>
+
+<%= @stadium.stadium_description %><br><br>
+
+<% @stadium.pictures.each do |picture| %>
+  <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<br>
+<br>
+
 <ul>
   <li>
-    <%= @stadium.name %>
+    Capicity : <%= @stadium.capacity %> persons
   </li>
   <li>
-    <%= @stadium.location %>
+    Energy class : <%= @stadium.energy_class %>
   </li>
   <li>
-    <%= @stadium.capacity %>
-  </li>
-  <li>
-    <%= @stadium.energy_class %>
-  </li>
-  <li>
-    <%= @stadium.price %>
+    <strong><%= @stadium.price %></strong> € per day
   </li>
 </ul>
+
+<br>
+<strong><%= link_to "Book this stadium !", stadium_booking_path(@stadium) %></strong>
+<br>
+<br>
+<%= link_to "Delete my stadium", stadia_path(@stadium), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<br>
+<%= link_to "Back to Stadiums list", stadia_path %>
