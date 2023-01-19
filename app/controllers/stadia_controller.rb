@@ -16,7 +16,12 @@ class StadiaController < ApplicationController
 
   def show
     @stadium = Stadium.find(params[:id])
-    @markers = @stadium # à reprendre !!
+    @markers = [{
+      lat: @stadium.latitude,
+      lng: @stadium.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {stadium: @stadium}),
+      marker_html: render_to_string(partial: "marker")
+    }]
   end
 
   def new

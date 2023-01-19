@@ -11,6 +11,7 @@ gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+gem 'pg_search'
 
 # Use Cloudinary for load image
 gem 'cloudinary'
