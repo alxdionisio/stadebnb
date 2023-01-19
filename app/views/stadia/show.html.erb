@@ -20,10 +20,16 @@
   </li>
 </ul>
 
+<div style="width: 800px; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 <br>
 <strong><%= link_to "Book this stadium !", stadium_booking_path(@stadium) %></strong>
 <br>
 <br>
-<%= link_to "Delete my stadium", stadia_path(@stadium), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to "Delete my stadium", stadium_path(@stadium), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 <br>
 <%= link_to "Back to Stadiums list", stadia_path %>

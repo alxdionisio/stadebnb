@@ -1,5 +1,11 @@
 <h1>StadiumBnb</h1>
 
+<div style="width: 800px; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 <% @stadia.each do |stadium| %>
   <strong><%=stadium.name.upcase%></strong><br><br>
   <% stadium.pictures.each do |picture| %>
@@ -9,7 +15,7 @@
   <%# <%=stadium.stadium_description %>
   Capacity : <%=stadium.capacity%><br>
   Energy Class : <%=stadium.energy_class%><br>
-  Price per day : <%=stadium.price%><br>
+  Price per day : <strong><%=stadium.price%><br></strong>
   <%= link_to "More informations", stadium_path(stadium) %><br><br><br>
 <% end %>
 
