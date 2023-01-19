@@ -3,10 +3,20 @@ class StadiaController < ApplicationController
 
   def index
     @stadia = Stadium.all
+    # The `geocoded` scope filters only stadiums with coordinates
+    @markers = @stadia.geocoded.map do |stadium|
+      {
+        lat: stadium.latitude,
+        lng: stadium.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {stadium: stadium}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
     @stadium = Stadium.find(params[:id])
+    @markers = @stadium # à reprendre !!
   end
 
   def new

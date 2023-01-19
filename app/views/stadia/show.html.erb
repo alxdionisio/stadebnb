@@ -20,6 +20,12 @@
   </li>
 </ul>
 
+<div style="width: 800px; height: 300px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 <br>
 <strong><%= link_to "Book this stadium !", stadium_booking_path(@stadium) %></strong>
 <br>

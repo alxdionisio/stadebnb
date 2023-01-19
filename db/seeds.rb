@@ -1,4 +1,12 @@
 
+image_path = Rails.root.join("app/assets/images/stadiums/logo.png")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture1 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'logo.png',
+  content_type: 'image/png'
+)
+
 image_path = Rails.root.join("app/assets/images/stadiums/camp nou.jpg")
 cloudinary_image = Cloudinary::Uploader.upload(image_path)
 picture1 = ActiveStorage::Blob.create_and_upload!(
