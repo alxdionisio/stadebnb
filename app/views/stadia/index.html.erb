@@ -1,17 +1,10 @@
 <h1>StadiumBnb - All stadiums available</h1><br>
 
-<%= simple_form_for :search, method: :get,
-                             defaults: { required: false } do |f| %>
-  <%= f.input :search, label: "Search by location or description :",
-                       input_html: { name: 'search',
-                                     value: params.dig(:search) } %>
-  <%= f.input :max_price, label: "Price per day max :",
-                          required: false,
-                          input_html: { type: :number,
-                                        name: :max_price,
-                                        value: params.dig(:max_price) } %>
-  <%= f.input :start_date, as: :date, label: "Start Date", input_html: { min: Date.today } %>
-  <%= f.input :end_date, as: :date, label: "End Date", input_html: { min: Date.today } %>
+<%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
+  <%= f.input :search, label: "Search by location or description :", input_html: { name: 'search', value: params.dig(:search) } %>
+  <%# <%= f.input :max_price, label: "Price per day max :", required: false, input_html: { type: :number, name: :max_price, value: params.dig(:max_price) } %>
+  <%# <%= f.input :start_date, as: :date, label: "Start Date", input_html: { min: Date.today } %>
+  <%# <%= f.input :end_date, as: :date, label: "End Date", input_html: { min: Date.today } %>
   <%= f.submit "Search my stadium" %>
 <% end %><br><br>
 

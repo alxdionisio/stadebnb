@@ -6,7 +6,20 @@ picture1 = ActiveStorage::Blob.create_and_upload!(
   filename: 'logo.png',
   content_type: 'image/png'
 )
-
+image_path = Rails.root.join("app/assets/images/logo.png")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture1 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'logo.png',
+  content_type: 'image/png'
+)
+image_path = Rails.root.join("app/assets/images/user.png")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture1 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'user.png',
+  content_type: 'image/png'
+)
 image_path = Rails.root.join("app/assets/images/stadiums/camp nou.jpg")
 cloudinary_image = Cloudinary::Uploader.upload(image_path)
 picture1 = ActiveStorage::Blob.create_and_upload!(
@@ -175,10 +188,65 @@ picture23 = ActiveStorage::Blob.create_and_upload!(
   filename: 'example.jpg',
   content_type: 'image/jpg'
 )
-
 image_path = Rails.root.join("app/assets/images/stadiums/peyrehorade2.jpg")
 cloudinary_image = Cloudinary::Uploader.upload(image_path)
 picture24 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/974-1.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture25 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/974-2.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture26 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/adelaide1.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture27 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/adelaide2.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture28 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/Madison1.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture29 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/madison2.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture30 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/sofi1.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture31 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpg',
+  content_type: 'image/jpg'
+)
+image_path = Rails.root.join("app/assets/images/stadiums/sofi2.jpg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture32 = ActiveStorage::Blob.create_and_upload!(
   io: URI.open(cloudinary_image['secure_url']),
   filename: 'example.jpg',
   content_type: 'image/jpg'
@@ -231,6 +299,18 @@ sanpaolo.pictures.attach(picture22)
 peyrehorade = Stadium.create(user_id: @user.id, name: "Stade Communal", location: "Peyrehorade", energy_class: "A+++", stadium_description: "Petit stade champetre à la frontière des Landes et du Pays Basques. Les terres de la commune sont arrosées par le gave de Pau et le gave d'Oloron (affluent de ce dernier) qui s'y réunissent pour former les Gaves réunis. Ce stade unique en pleine campagne saura répondre à toutes vos attentes: pique-niques, fêtes forraines, accueil des gens du voyage, parking géant... Attention, Le territoire de la commune de Peyrehorade est vulnérable à différents aléas naturels : météorologiques (tempête, orage, neige, grand froid, canicule ou sécheresse), inondations, mouvements de terrains et séisme !", capacity: 659, price: 50)
 peyrehorade.pictures.attach(picture23)
 peyrehorade.pictures.attach(picture24)
+stadium974 = Stadium.create(user_id: @user.id, name: "Stadium 974", location: "Doha", energy_class: "A+", stadium_description: "Stadium 974, previously known as Ras Abu Aboud Stadium, in Doha, Qatar, about 10 km east of Doha. Opened 30 November 2021, it is a temporary venue, made from 974 recycled shipping containers, that hosted matches during the 2021 FIFA Arab Cup and the 2022 FIFA World Cup. It was the first temporary venue in FIFA World Cup history.", capacity: 44089, price: 1000000)
+stadium974.pictures.attach(picture25)
+stadium974.pictures.attach(picture26)
+adelaide = Stadium.create(user_id: @user.id, name: "Adelaide Oval", location: "Adelaide", energy_class: "B", stadium_description: "Adelaide Oval is a sports ground in Adelaide, South Australia, located in the parklands between the city centre and North Adelaide. The venue is predominantly used for cricket and Australian rules football, but has also played host to rugby league, rugby union, soccer, tennis among other sports as well as regularly being used to hold concerts.[3] Austadiums.com described Adelaide Oval as being one of the most picturesque Test cricket grounds in Australia, if not the world", capacity: 53500, price: 20000000)
+adelaide.pictures.attach(picture27)
+adelaide.pictures.attach(picture28)
+madison = Stadium.create(user_id: @user.id, name: "Madison Square Garden", location: "New-York", energy_class: "D", stadium_description: "Madison Square Garden, colloquially known as The Garden or by its initials MSG, is a multi-purpose indoor arena in New York City. It is located in Midtown Manhattan between Seventh and Eighth avenues from 31st to 33rd Street, above Pennsylvania Station. It is the fourth venue to bear the name Madison Square Garden; the first two (1879 and 1890) were located on Madison Square, on East 26th Street and Madison Avenue, with the third Madison Square Garden (1925) farther uptown at Eighth Avenue and 50th Street.", capacity: 20000, price: 900000)
+madison.pictures.attach(picture29)
+madison.pictures.attach(picture30)
+sofi = Stadium.create(user_id: @user.id, name: "SoFi Stadium", location: "Los Angeles", energy_class: "C", stadium_description: "Opened in September 2020, the fixed-roof stadium is home to the National Football League (NFL)'s Los Angeles Rams and Los Angeles Chargers, as well as the annual LA Bowl in college football. The facility is a component of Hollywood Park, a master planned neighborhood in development on the site of the former racetrack. ", capacity: 100000, price: 3000000)
+sofi.pictures.attach(picture31)
+sofi.pictures.attach(picture32)
 p "stadiums created"
 
 
