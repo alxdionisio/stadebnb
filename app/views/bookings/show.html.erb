@@ -1,8 +1,9 @@
-<div class="container-booking">
-  <h2>Congratulations, you've just booked your stadium!</h2>
+<div class="container-booking-details">
+  <h2>Congratulations, you've just booked the <%= @booking.stadium.name %></h2>
+  </br>
   <h3>Here are your booking details</h3>
 
-  <div class="booking-dates">
+  <div class="booking-dates-details">
     <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
     <p><strong>End Date:</strong> <%= @booking.end_date %></p>
   </div>
@@ -12,13 +13,15 @@
     <p><strong>Location:</strong> <%= @booking.stadium.location %></p>
     <p><strong>Capacity:</strong> <%= @booking.stadium.capacity %></p>
     <p><strong>Energy Class:</strong> <%= @booking.stadium.energy_class %></p>
-    <p><strong>Price:</strong> <%= @booking.stadium.price %></p>
+    <p><strong>Price:</strong> <%= @booking.stadium.price %> $</p>
   </div>
 
-  <div class="booking-total">
-    <p><strong>Total Price:</strong> <%= @booking.total_price %></p>
+  <div class="booking-total-details">
+    <p><strong>Total Price:</strong> <%= @booking.total_price %> $</p>
+  </div>
 
-    <div class="booking-buttons">
+    <div class="booking-buttons-details">
       <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
       <%= link_to "Back to My Bookings", bookings_path, class: "btn btn-primary" %>
+    </div>
 </div>

@@ -1,0 +1,17 @@
+.container-bookings {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.bookings-cards {
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+}

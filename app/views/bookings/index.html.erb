@@ -1,40 +1,41 @@
 <div>
   <h1>All my bookings</h1>
 </div>
-
+</br>
 <div>
   <h2>Bookings to come</h2>
 </div>
 
-<div>
-  <ul>
-    <% @bookings.each do |booking| %>
+<div class="container-bookings">
+  <% @bookings.each do |booking| %>
+    <div class="booking-card-details">
       <%if booking.start_date >= Date.today %>
-        <li>
+        <%# <div class="booking-details"> %>
           <p>Name: <%= booking.stadium.name %></p>
           <p>Start date: <%= booking.start_date %></p>
           <p><%= booking.end_date %></p>
           <p><%= link_to "View details", booking_path(booking) %></p>
-        </li>
+        <%# </div> %>
       <% end %>
-    <% end %>
-  </ul>
+    </div>
+  <% end %>
 </div>
-
 
 <div>
   <h2>Past bookings</h2>
 </div>
 
-<div>
-  <ul>
-    <% @bookings.each do |booking| %>
+<div class="container-bookings">
+  <% @bookings.each do |booking| %>
+    <div class="booking-card-details">
       <%if booking.start_date < Date.today %>
-        <li>
+        <%# <div class="booking-details"> %>
           <p>Name: <%= booking.stadium.name %></p>
           <p>Start date: <%= booking.start_date %></p>
           <p><%= booking.end_date %></p>
-        </li>
+          <p><%= link_to "View details", booking_path(booking) %></p>
+        <%# </div> %>
       <% end %>
-    <% end %>
-  </ul>
+    </div>
+  <% end %>
+</div>
