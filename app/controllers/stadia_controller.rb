@@ -2,21 +2,32 @@ class StadiaController < ApplicationController
   before_action :set_stadium, only: [:show, :edit, :update, :destroy]
 
   def index
+
+    if params[:search].present?
+      @stadia = Stadium.search_by_description_and_location(params[:search])
+      set_markers
+    # if params[:max_price].present?
+    #   @stadia = @stadia.where("price <= ?", params[:max_price])
+    #   set_markers
+    #   if params[:starts_at].present? && params[:ends_at].present?
+    #     @stadia = @stadia.select do |stadium|
+    #       stadium.is_available?(params[:starts_at], params[:ends_at])
+    #     end
+    #   set_markers
+    else
     @stadia = Stadium.all
-    # The `geocoded` scope filters only stadiums with coordinates
-    @markers = @stadia.geocoded.map do |stadium|
-      {
-        lat: stadium.latitude,
-        lng: stadium.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {stadium: stadium}),
-        marker_html: render_to_string(partial: "marker")
-      }
+    set_markers
     end
   end
 
   def show
     @stadium = Stadium.find(params[:id])
-    @markers = @stadium # à reprendre !!
+    @markers = [{
+      lat: @stadium.latitude,
+      lng: @stadium.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {stadium: @stadium}),
+      marker_html: render_to_string(partial: "marker")
+    }]
   end
 
   def new
@@ -56,4 +67,14 @@ class StadiaController < ApplicationController
     @stadium = Stadium.find(params[:id])
   end
 
+  def set_markers
+    @markers = @stadia.geocoded.map do |stadium|
+    {
+      lat: stadium.latitude,
+      lng: stadium.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {stadium: stadium}),
+      marker_html: render_to_string(partial: "marker")
+    }
+    end
+  end
 end

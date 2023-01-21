@@ -16,11 +16,11 @@
     Energy class : <%= @stadium.energy_class %>
   </li>
   <li>
-    <strong><%= @stadium.price %></strong> € per day
+    <strong><%= @stadium.price %> $</strong> / day
   </li>
 </ul>
 
-<div style="width: 800px; height: 300px;"
+<div style="width: 800px; height: 400px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
