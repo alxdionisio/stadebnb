@@ -1,0 +1,18 @@
+<h1>ma réservation</h1>
+
+<ul>
+  <li>
+    <%= booking.stadium.name %>
+  </li>
+  <li>
+    <%= @booking.start_date %>
+  </li>
+  <li>
+    <%= @booking.end_date %>
+  </li>
+  <li>
+    <strong><%= booking.total_price %></strong> €
+  </li>
+</ul>
+
+<%= link_to "retourner à mes réservation", dashboard_path %>

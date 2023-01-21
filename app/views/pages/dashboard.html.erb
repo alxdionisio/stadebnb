@@ -1,0 +1,13 @@
+<h1>Mon dashboard</h1>
+<% if @bookings.empty?  %>
+  <p>Vous n'avez pas encore de réservation</p>
+<%else%>
+  <p>Vous avez <%= @bookings.count %> réservation(s)</p>
+
+<%= @bookings.each do |booking| %>
+  <%= booking.stadium.name %>
+  <%= link_to "check this booking", booking_path %>
+  <%end%>
+<%end%>
+
+<%= link_to "retour à mon profil", profile_path  %>

@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @stadium = Stadium.find(params[:stadium_id])
   end
 
   def create
@@ -39,7 +40,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :stadium_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :total_price, :stadium_id, :user_id)
   end
 
   def set_booking
