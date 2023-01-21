@@ -22,6 +22,9 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def contact
+  end
+
   def update
     @user = current_user
     @user.update(user_params)

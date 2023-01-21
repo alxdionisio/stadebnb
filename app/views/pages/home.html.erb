@@ -1,17 +1,42 @@
-<div class="banner">
+<div class="banner" style="background-image: url(https://tourismmedia.italia.it/is/image/mitur/20220427155442-tifosi-allo-stadio-milano-lombardiashutterstock-96072692-1?wid=850&hei=500&fit=constrain,1&fmt=webp) ">
   <div class="banner-content text-center">
     <h1>Le stade qui te correspond</h1>
-    <p>Trouve le stade parfait pour ton événement</p>
+    <p class="opacity-75">Trouve le stade parfait pour ton événement</p>
     <%= link_to "les stades dispos", stadia_path, class: "btn btn-lg btn-primary"  %>
   </div>
 </div>
-  <%# <div class="text-center">
-    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%# <%= f.input :name, input_html: {value: ""} %>
-      <%# <%= f.input :location, input_html: {value: ""} %>
-      <%# <%= f.input :capacity, input_html: {value: ""} %>
-      <%# <%= f.input :energy_class, input_html: {value: ""} %>
-      <%# <%= f.input :price, input_html: {value: ""} %>
-      <%# <%= f.submit "Search", class: "btn btn-primary" %>
-    <%# <% end %>
-  <%# </div> %>
+
+<div class="footer p-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>StadiumBnb</h3>
+        <p>StadiumBnb est une plateforme qui permet de louer des stades pour des événements sportifs ou non.</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Liens</h3>
+        <ul class="list-unstyled">
+          <li><%= link_to "Stades", stadia_path %></li>
+          <li><%= link_to "Ajouter un stade", new_stadium_path %></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>Newsletter</h3>
+        <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités.</p>
+        <form action="#" method="post">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Votre email">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button">S'abonner</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center">© 2023 StadiumBnb. Tous droits réservés.</p>
+      </div>
+    </div>
+  </div>
+</div>

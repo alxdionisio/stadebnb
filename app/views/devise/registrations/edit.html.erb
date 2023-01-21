@@ -25,6 +25,8 @@
                 required: false,
                 input_html: { autocomplete: "new-description" } %>
 
+    <%= f.input :pictures, as: :file, input_html: { multiple: false } %>
+
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,

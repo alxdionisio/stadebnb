@@ -28,8 +28,7 @@
             <span class="nav-item"><%=current_user.email %></span>
             <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674220835/rwcaekxsosig45kistar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profil", "#", class: "dropdown-item" %>
-              <%= link_to "Dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "Profil", profile_path, class: "dropdown-item" %>
               <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Setting", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
