@@ -1,31 +1,38 @@
-<h1>StadiumBnb - All stadiums available</h1><br>
+<div class="container">
 
-<%# <%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
-  <%# <%= f.input :search, label: "Search by location or description :", input_html: { name: 'search', value: params.dig(:search) } %>
-  <%# <%= f.input :max_price, label: "Price per day max :", required: false, input_html: { type: :number, name: :max_price, value: params.dig(:max_price) } %>
-  <%# <%= f.input :start_date, as: :date, label: "Start Date", input_html: { min: Date.today } %>
-  <%# <%= f.input :end_date, as: :date, label: "End Date", input_html: { min: Date.today } %>
-  <%# <%= f.submit "Search my stadium", class: "btn btn-primary" %>
-<%# <% end %>
+  <h1>StadiumBnb - All stadiums available</h1>
+  <%# <%= link_to "ADD MY STADIUM !", new_stadium_path, class: "btn btn-primary" %>
 
-<div style="width: 800px; height: 400px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div><br><br>
+  <div class="main-container">
 
-<% @stadia.each do |stadium| %>
-  <strong><%=stadium.name.upcase%></strong><br><br>
-  <% stadium.pictures.each do |picture| %>
-    <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
-  <% end %><br><br>
-  Location : <%=stadium.location%><br>
-  <%# <%=stadium.stadium_description %>
-  Capacity : <%=stadium.capacity%><br>
-  Energy Class : <%=stadium.energy_class%><br>
-  Price : <strong><%=stadium.price%> $</strong> / day<br>
-  <%= link_to "More informations", stadium_path(stadium) %><br><br><br>
-<% end %>
+    <div class="cards">
+      <% @stadia.each do |stadium| %>
 
+        <div>
+          <h3><strong><%=stadium.name.upcase%></strong></h3>
 
-<strong><%= link_to "ADD MY STADIUM !", new_stadium_path %></strong>
+          <div class="pictures_stadium">
+            <% stadium.pictures.each do |picture| %>
+              <%= cl_image_tag picture.key, height: 300, width: 300, crop: :fill %>
+            <% end %><br><br>
+          </div>
+
+          <div class="details">
+            <p>Location : <strong><%=stadium.location%></p></strong>
+            <p>Capacity : <%=stadium.capacity%></p>
+            <p>Energy Class : <%=stadium.energy_class%></p>
+            <p>Price : <strong><%=stadium.price%> $</strong> / day</p>
+
+            <%= link_to "More informations", stadium_path(stadium) %>
+          </div>
+
+        </div>
+
+      <% end %>
+    </div>
+
+    <div id="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  </div>
+
+</div>

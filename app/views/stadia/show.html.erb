@@ -1,35 +1,40 @@
-<h1><strong><%= @stadium.name %> - <%= @stadium.location %></strong></h1><br>
+<div class="container">
 
-<%= @stadium.stadium_description %><br><br>
+  <h1><strong><%= @stadium.name %> - <%= @stadium.location %></strong></h1><br>
 
-<% @stadium.pictures.each do |picture| %>
-  <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<br>
-<br>
+  <%= @stadium.stadium_description %><br><br>
 
-<ul>
-  <li>
-    Capicity : <%= @stadium.capacity %> persons
-  </li>
-  <li>
-    Energy class : <%= @stadium.energy_class %>
-  </li>
-  <li>
-    <strong><%= @stadium.price %> $</strong> / day
-  </li>
-</ul>
+  <div class="stadium_pictures">
+  <% @stadium.pictures.each do |picture| %>
+    <%= cl_image_tag picture.key, height: 300, width: 600, crop: :fill %>
+  <% end %>
+  <br>
+  <br>
+  </div>
 
-<div style="width: 800px; height: 400px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <ul>
+    <li>
+      Capicity : <%= @stadium.capacity %> persons
+    </li>
+    <li>
+      Energy class : <%= @stadium.energy_class %>
+    </li>
+    <li>
+      <strong><%= @stadium.price %> $</strong> / day
+    </li>
+  </ul>
+
+  <%= link_to "Book this stadium !", new_stadium_booking_path(@stadium),class: "btn btn-success"  %><br><br>
+
+  <div class="d-flex" style="width: 100%; height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div><br>
+
+  <div>
+  <%= link_to "Delete my stadium", stadium_path(@stadium), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
+  </div><br>
+
 </div>
-
-<br>
-<strong><%= link_to "Book this stadium !", new_stadium_booking_path(@stadium) %></strong>
-<br>
-<br>
-<%= link_to "Delete my stadium", stadium_path(@stadium), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-<br>
-<%= link_to "Back to Stadiums list", stadia_path %>

@@ -1,0 +1,28 @@
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  width: 75%;
+}
+
+.main-container {
+  display: flex;
+}
+
+.cards {
+  flex-grow: 1;
+}
+
+.pictures_stadium {
+  display: flex;
+  margin-right: 1em;
+  > img {
+    margin-right: 1em;
+  }
+}
+
+.details  {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  line-height: 0.2em;
+}
