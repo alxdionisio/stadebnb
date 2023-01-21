@@ -18,10 +18,10 @@ class Stadium < ApplicationRecord
   against: [ :stadium_description, :location ],
   using: { tsearch: { prefix: true } }
 
-  def is_available?(start_date, end_date)
-    bookings.each do |b|
-      return false if (b.starts_at..b.ends_at).overlaps?(start_date.to_date..end_date.to_date)
-    end
-    true
-  end
+  # def is_available?(start_date, end_date)
+  #   bookings.each do |b|
+  #     return false if (b.starts_at..b.ends_at).overlaps?(start_date.to_date..end_date.to_date)
+  #   end
+  #   true
+  # end
 end
