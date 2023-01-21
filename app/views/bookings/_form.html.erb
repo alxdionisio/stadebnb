@@ -1,15 +1,15 @@
-<div class="confirmation-box col-md-4">
+<div class="booking-box col-md-4">
   <div class="listing-price">
-    <div class="form-group">
-      <h4><%= @stadium.price %> €</h4>
-      <p>per day (service fees included)</p><br>
+    <h4><%= @stadium.price %> $</h4>
+    <p>per day (service fees included)</p><br>
+  </div>
 
-      <%= simple_form_for [@stadium, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, label: "Start Date", input_html: { min: Date.today } %>
-        <%= f.input :end_date, as: :date, label: "End Date", input_html: { min: Date.today } %>
-        <%= f.input :total_price, as: :hidden, input_html: { value: @stadium.price } %>
-        <%= f.button :submit, "Book Now", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+  <div class="form-group">
+    <%= simple_form_for [@stadium, @booking] do |f| %>
+      <%= f.input :start_date, as: :date, label: "Start Date", input_html: { min: Date.today } %>
+      <%= f.input :end_date, as: :date, label: "End Date", input_html: { min: Date.today } %>
+      <%= f.input :total_price, as: :hidden, input_html: { value: @stadium.price } %>
+      <%= f.button :submit, "Book Now", data: { turbo_method: :create, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

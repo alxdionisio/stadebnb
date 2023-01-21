@@ -8,7 +8,7 @@
 <%= f.input :price %>
 <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
 <%= f.input :stadium_description %>
-<%= f.submit "Create", class: "btn btn-primary" %>
+<%= f.submit "Create", :confirm => 'Are your sure you want to book this stadium?', class: "btn btn-primary" %>
 <% end %>
 <br>
 <br>
