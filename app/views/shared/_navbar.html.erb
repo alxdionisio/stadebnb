@@ -1,13 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to stadia_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674219145/pjihmggw8otoh67utsdh.png" %>
+      <%= image_tag "/assets/images/logo.png" %>
     <% end %>
 
+      <h2><strong>STADIUMBNB</strong></h2>
+
     <div>
-    <%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
-      <%= f.input :"Search by location or description :", label: "", input_html: { name: 'search', value: params.dig(:search) } %>
-    <% end %>
+      <%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
+        <%= f.input :"", label: "", placeholder: "Location or description", input_html: { name: 'search', value: params.dig(:search) } %>
+      <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

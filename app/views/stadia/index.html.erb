@@ -1,6 +1,5 @@
 <div class="container">
 
-  <h1>StadiumBnb - All stadiums available</h1>
   <%# <%= link_to "ADD MY STADIUM !", new_stadium_path, class: "btn btn-primary" %>
 
   <div class="main-container">
@@ -13,17 +12,21 @@
 
           <div class="pictures_stadium">
             <% stadium.pictures.each do |picture| %>
-              <%= cl_image_tag picture.key, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag picture.key, height: 250, width: 350, crop: :fill %>
             <% end %><br><br>
           </div>
 
-          <div class="details">
-            <p>Location : <strong><%=stadium.location%></p></strong>
-            <p>Capacity : <%=stadium.capacity%></p>
-            <p>Energy Class : <%=stadium.energy_class%></p>
-            <p>Price : <strong><%=stadium.price%> $</strong> / day</p>
+          <div class="d-flex justify-content-around">
+            <div class="left">
+              <p>Location : <strong><%=stadium.location%></strong><br>Capacity : <strong><%=stadium.capacity%></strong></p>
+            </div>
+            <div class="right">
+              <p>Energy Class : <strong><%=stadium.energy_class%></strong><br>Price : <strong><%=stadium.price%> $</strong> / day</p>
+            </div>
+          </div>
 
-            <%= link_to "More informations", stadium_path(stadium) %>
+          <div class="d-flex justify-content-around">
+            <%= link_to "More informations", stadium_path(stadium), class: "btn btn-outline-primary" %>
           </div>
 
         </div>

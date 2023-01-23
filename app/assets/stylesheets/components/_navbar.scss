@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #0090c1;
+  background: hsl(0, 0%, 0%);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,10 +13,20 @@
 
 form.search {
   label {
-    width: 150%;
+    color: #183446;
+    font-family: 'Kanit', sans-serif;
   }
   > div {
     display: flex;
     align-items: flex-end;
   }
+
+}
+.nav-link {
+  color: #0090c1;
+  font-family: 'Kanit', sans-serif;
+}
+.nav-item {
+  color: #0090c1;
+  font-family: 'Kanit', sans-serif;
 }
