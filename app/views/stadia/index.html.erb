@@ -1,14 +1,22 @@
 <div class="container">
 
-  <%# <%= link_to "ADD MY STADIUM !", new_stadium_path, class: "btn btn-primary" %>
+  <div class="d-flex justify-content-end">
+    <%= link_to "Add my stadium", new_stadium_path, class: "btn btn-outline-primary" %>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
+      <%= f.input :"", label: "", placeholder: "Location or description", input_html: { name: 'search', value: params.dig(:search) } %>
+    <% end %>
+  </div>
 
   <div class="main-container">
 
     <div class="cards">
       <% @stadia.each do |stadium| %>
 
-        <div>
-          <h3><strong><%=stadium.name.upcase%></strong></h3>
+        <div class="stadium-card">
+          <h3><%=stadium.name%></h3>
 
           <div class="pictures_stadium">
             <% stadium.pictures.each do |picture| %>

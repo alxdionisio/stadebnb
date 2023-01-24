@@ -1,7 +1,7 @@
 
 .main-container {
   display: flex;
-  background-color: #1d1e1f;
+  background-color: #14141B;
   padding: 20px;                             /* Internal space */
 }
 
@@ -51,4 +51,14 @@
 .btn btn-secondary {
   background-color: #046E8F;
   border-color: #046E8F;
+}
+
+.stadium-card {
+  background-color: #101111;
+  margin-right: 1em;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);    /* Light shadow */
+  border: 1px solid #61D7FC;
 }

@@ -1,30 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to stadia_path, class: "navbar-brand" do %>
-      <%= image_tag "/assets/images/logo.png" %>
-    <% end %>
+  <div class="container">
 
-      <h2><strong>STADIUMBNB</strong></h2>
-
-    <div>
-      <%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
-        <%= f.input :"", label: "", placeholder: "Location or description", input_html: { name: 'search', value: params.dig(:search) } %>
+    <div class="d-flex justify-content-center">
+      <%= link_to stadia_path, class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674508155/vtdbsujwjposx3eouhhr.png" %>
       <% end %>
+      <h2><strong>Stadium</strong></h2>
+      <h5><strong>BnB</strong></h5>
     </div>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
             <%= link_to "My bookings", bookings_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Add my stadium", new_stadium_path, class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
             <span class="nav-item"><%=current_user.email %></span>
             <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674220835/rwcaekxsosig45kistar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
