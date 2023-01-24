@@ -16,7 +16,9 @@ class Stadium < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_description_and_location,
   against: [ :stadium_description, :location ],
-  using: { tsearch: { prefix: true } }
+  using: {
+    tsearch: { prefix: true }
+  }
 
   # def is_available?(start_date, end_date)
   #   bookings.each do |b|
