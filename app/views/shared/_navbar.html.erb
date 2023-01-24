@@ -9,6 +9,12 @@
       <h5><strong>BnB</strong></h5>
     </div>
 
+    <div><strong><%= link_to "Germany", stadia_path(search:"Germany"), class:"country" %></strong></div>
+    <div><strong><%= link_to "France", stadia_path(search:"France"), class:"country" %></strong></div>
+    <div><strong><%= link_to "Spain", stadia_path(search:"Spain"), class:"country" %></strong></div>
+    <div><strong><%= link_to "Australia", stadia_path(search:"Australia"), class:"country" %></strong></div>
+    <div><strong><%= link_to "United States", stadia_path(search:"USA"), class:"country" %></strong></div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
