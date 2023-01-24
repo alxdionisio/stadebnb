@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #0090c1;
+  background: hsl(0, 0%, 0%);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,12 +11,14 @@
   width: 80px;
 }
 
-form.search {
-  label {
-    width: 150%;
-  }
-  > div {
-    display: flex;
-    align-items: flex-end;
-  }
+.nav-link:hover {
+  color: #3674FC;
+}
+.nav-link {
+  color: #0090c1;
+  font-family: 'Play', sans-serif;
+}
+.nav-item {
+  color: #0090c1;
+  font-family: 'Play', sans-serif;
 }
