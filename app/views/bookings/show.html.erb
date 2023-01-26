@@ -20,8 +20,14 @@
     <p><strong>Total Price:</strong> <%= @booking.total_price %> $</p>
   </div>
 
+  <%# <%= simple_form_for [@booking, @review] do |f| %>
+    <%# <%= f.input :content, label: "Leave a review for this stadium" %>
+    <%# <%= f.input :rating, label: "Leave your rating for this stadium" %>
+    <%# <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%# <% end %>
+
     <div class="booking-buttons-details">
       <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
       <%= link_to "Back to My Bookings", bookings_path, class: "btn btn-primary" %>
     </div>
-</div>
+</div>     wµµ

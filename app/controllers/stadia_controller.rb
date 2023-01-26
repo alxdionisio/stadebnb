@@ -6,17 +6,9 @@ class StadiaController < ApplicationController
     if params[:search].present?
       @stadia = Stadium.search_by_description_and_location(params[:search])
       set_markers
-    # if params[:max_price].present?
-    #   @stadia = @stadia.where("price <= ?", params[:max_price])
-    #   set_markers
-    #   if params[:starts_at].present? && params[:ends_at].present?
-    #     @stadia = @stadia.select do |stadium|
-    #       stadium.is_available?(params[:starts_at], params[:ends_at])
-    #     end
-    #   set_markers
     else
-    @stadia = Stadium.all
-    set_markers
+      @stadia = Stadium.all
+      set_markers
     end
   end
 
@@ -60,7 +52,7 @@ class StadiaController < ApplicationController
   private
 
   def stadium_params
-    params.require(:stadium).permit(:name, :location, :capacity, :stadium_description, :energy_class, :price, pictures: [])
+    params.require(:stadium).permit(:name, :location, :capacity, :stadium_description, :energy_class, :price, :photo, pictures: [])
   end
 
   def set_stadium

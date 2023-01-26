@@ -9,12 +9,21 @@
       <h5><strong>BnB</strong></h5>
     </div>
 
+    <div><strong><%= link_to "Germany", stadia_path(search:"Germany"), class:"country" %></strong></div>
+    <div><strong><%= link_to "France", stadia_path(search:"France"), class:"country" %></strong></div>
+    <div><strong><%= link_to "Spain", stadia_path(search:"Spain"), class:"country" %></strong></div>
+    <div><strong><%= link_to "Australia", stadia_path(search:"Australia"), class:"country" %></strong></div>
+    <div><strong><%= link_to "United States", stadia_path(search:"USA"), class:"country" %></strong></div>
+    <div><strong><%= link_to "Italy", stadia_path(search:"Italy"), class:"country" %></strong></div>
+    <div><strong><%= link_to "Qatar", stadia_path(search:"Qatar"), class:"country" %></strong></div>
+    <div><%= link_to "My bookings", bookings_path, class: "nav-link" %></div>
+
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-            <%= link_to "My bookings", bookings_path, class: "nav-link" %>
           <li class="nav-item dropdown">
-            <span class="nav-item"><%=current_user.email %></span>
+            <%=current_user.email %>
             <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674220835/rwcaekxsosig45kistar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path, class: "dropdown-item" %>
