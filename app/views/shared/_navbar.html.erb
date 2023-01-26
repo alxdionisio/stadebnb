@@ -23,7 +23,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%=current_user.email %>
+            <%=current_user.first_name%> <%=  current_user.last_name %>
             <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674220835/rwcaekxsosig45kistar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path, class: "dropdown-item" %>

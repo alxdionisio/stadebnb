@@ -1,3 +1,4 @@
+ <div class="stadium-card">
 <h1>Mon dashboard</h1>
 <% if @bookings.empty?  %>
   <p>Vous n'avez pas encore de réservation</p>
@@ -16,12 +17,12 @@
   <ul>
     <% @bookings.each do |booking| %>
       <%if booking.start_date >= Date.today %>
-        <li>
+        <ul class="stadium-card">
           <p>Name: <%= booking.stadium.name %></p>
           <p>Start date: <%= booking.start_date %></p>
           <p><%= booking.end_date %></p>
           <p><%= link_to "View details", booking_path(booking), class: "btn btn-outline-primary" %></p>
-        </li>
+        </ul>
       <% end %>
     <% end %>
   </ul>
@@ -36,11 +37,11 @@
   <ul>
     <% @bookings.each do |booking| %>
       <%if booking.start_date < Date.today %>
-        <li>
+        <ul class="stadium-card">
           <p>Name: <%= booking.stadium.name %></p>
           <p>Start date: <%= booking.start_date %></p>
           <p><%= booking.end_date %></p>
-        </li>
+        </ul>
       <% end %>
     <% end %>
     <div><%= link_to "retourner à mon profile", profile_path, class: "btn btn-outline-primary" %></h3></div>
@@ -48,3 +49,4 @@
 
 
   <%end%>
+</div>
