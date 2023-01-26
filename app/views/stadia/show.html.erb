@@ -52,8 +52,10 @@
   <div class="links">
     <div class="d-flex justify-content-evenly">
       <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
-      <%= link_to "Edit my stadium", edit_stadium_path(@stadium), class: "btn btn-primary" %>
-      <%= link_to "Delete my stadium", stadium_path(@stadium), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <%if current_user.id == @stadium.user_id  %>
+        <%= link_to "Edit my stadium", edit_stadium_path(@stadium), class: "btn btn-primary" %>
+        <%= link_to "Delete my stadium", stadium_path(@stadium), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <%end %>
     </div>
   </div>
 
