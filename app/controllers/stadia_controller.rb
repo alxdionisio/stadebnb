@@ -5,6 +5,7 @@ class StadiaController < ApplicationController
 
     if params[:search].present?
       @stadia = Stadium.search_by_description_and_location(params[:search])
+      @reviews = Review.all
       set_markers
     else
       @stadia = Stadium.all

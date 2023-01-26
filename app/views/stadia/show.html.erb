@@ -17,12 +17,12 @@
           </div>
 
           <div class="d-flex justify-content-evenly">
-            <div class="d-flex" style="width: 40% ; height: 200px;"
+            <div class="d-flex" style="width: 40% ; height: 190px;"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
-            <div><%= cl_image_tag @stadium.photo.key, height: 200, width: 280, crop: :fill %></div>
+            <div><%= cl_image_tag @stadium.photo.key, height: 190, width: 280, crop: :fill %></div>
           </div>
         </div>
       </div>
@@ -37,23 +37,33 @@
 
   </div>
 
-
-    <div class="review-detail">
-      <%= pluralize @stadium.reviews.size, "review" %>
+    <div class="second-container">
+      <h4><%= pluralize @stadium.reviews.size, "review" %><span> for </span><%= @stadium.name %>
+      <span>  - Rate :  </span>
       <% if @stadium.reviews.blank? %>
-        <p><i>Be the first to leave a review for <%= @stadium.name %></i></p>
+        <i> -- </i>
+      <% else %>
+        <%= @stadium.reviews.average(:rating).round(1) %><span> / 5 </span></h4><br>
+      <% end %>
+      <% if @stadium.reviews.blank? %>
+        <p>Be the first to leave a review for <%= @stadium.name %></p>
       <% else %>
         <% @stadium.reviews.each do |review| %>
-          <%= review.content %>
+          <%= review.rating %>
+          <span> / 5  -   </span>
+          <%= review.content %><br>
         <% end %>
-      <% end %>
+      <% end %><br>
 
       <%= simple_form_for([@stadium, @review]) do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating %>
-      <%= f.button :submit %>
+      <%= f.input :content, placeholder: "Leave your comment" %>
+      <%= f.input :rating, placeholder: "Leave a rate between 1 and 5" %>
+      <%= f.button :submit, class: "btn btn-outline-light" %><br><br>
+
       <% end %>
+      </div>
     </div>
+
 
   <div class="links">
     <div class="d-flex justify-content-evenly">
