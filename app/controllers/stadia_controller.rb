@@ -52,7 +52,7 @@ class StadiaController < ApplicationController
   private
 
   def stadium_params
-    params.require(:stadium).permit(:name, :location, :capacity, :stadium_description, :energy_class, :price, pictures: [])
+    params.require(:stadium).permit(:name, :location, :capacity, :stadium_description, :energy_class, :price, :photo, pictures: [])
   end
 
   def set_stadium
