@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :stadiums, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_one_attached :pictures
+  has_one_attached :picture
 
   validates :first_name, presence: true
   validates :last_name, presence: true
