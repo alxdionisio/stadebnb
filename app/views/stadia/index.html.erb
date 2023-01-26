@@ -1,13 +1,13 @@
 <div class="container">
 
-  <div class="d-flex justify-content-end">
-    <%= link_to "Add my stadium", new_stadium_path, class: "btn btn-outline-primary" %>
-  </div>
-
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-between">
     <%= simple_form_for :search, method: :get, defaults: { required: false } do |f| %>
-      <%= f.input :"", label: "", placeholder: "Location or description", input_html: { name: 'search', value: params.dig(:search) } %>
+      <%= f.input :"", label: "", placeholder: "Search my stadium !", input_html: { name: 'search', value: params.dig(:search) } %>
     <% end %>
+    <h6>Book the stadium of your dream !</h6>
+    <div class="btn">
+      <%= link_to "Register my stadium !", new_stadium_path, class: "btn btn-outline-light" %>
+    </div>
   </div>
 
   <div class="main-container">
@@ -38,12 +38,10 @@
           </div>
 
         </div>
-
       <% end %>
     </div>
 
     <div id="map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   </div>
-
 </div>

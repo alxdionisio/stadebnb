@@ -1,40 +1,78 @@
 <div class="container">
 
-  <h1><strong><%= @stadium.name %> - <%= @stadium.location %></strong></h1><br>
+  <h1><strong><%= @stadium.name %></strong></h1>
+  <div class="city"><strong><%= @stadium.location %></strong></div><br>
 
-  <p><%= @stadium.stadium_description %></p><br><br>
+  <div class="d-flex justify-content-between">
 
-  <div class="stadium_pictures">
-  <% @stadium.pictures.each do |picture| %>
-    <%= cl_image_tag picture.key, height: 400, width: 600, crop: :fill %><br><br>
-  <% end %>
-  <br>
-  <br>
+    <div class="main-container">
+      <div>
+        <div>
+          <div class="description"><%= @stadium.stadium_description %></div><br>
+
+          <div class="description-details">
+            <div>Capicity : <%= @stadium.capacity %> persons</div>
+            <div><%= @stadium.price %> $</strong> / day<strong></div>
+            <div class="d-flex justify-content-center"><%= link_to "Book this stadium !", new_stadium_booking_path(@stadium),class: "btn btn-outline-light" %></div><br><br><br><br>
+          </div>
+
+          <div class="d-flex justify-content-evenly">
+
+            <div class="d-flex" style="width: 40% ; height: 200px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+
+            <div>
+              <% if @stadium.energy_class == "A+++" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601407/o0ahhsefr1vorgikl1gl.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "A" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601423/p5cpqfp8acfiys55eda8.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "B" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601412/g6ensukthyvqfsez3zs0.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "C" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601414/yk56v4moplqsnb5hw8yx.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "D" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601415/n9v3orncd1szjz0mya8o.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "E" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601417/ihflh9a2fdi1mhnwrynf.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "F" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601419/nrzowce61pybvnmt8blm.png", height: 200, width: 220, crop: :fill %>
+              <% elsif @stadium.energy_class == "G" %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601422/xb6eg32qqfjrp02jn7ax.png", height: 200, width: 220, crop: :fill %>
+              <% end %>
+            </div>
+
+          </div>
+
+          <%# <div><%= pluralize(@booking.reviews.size, "review")</div> %>
+          <%# <div> %>
+            <%# <% if @bookings.reviews.blank? %>
+              <%# <>Be the first to leave a review for <%= @stadium.name %>
+            <%# <% else %>
+              <%# <% @booking.reviews.each do |review| %>
+                <%# <><%= review.content %>
+              <%# <% end %>
+            <%# <% end %>
+          <%# </div> %>
+
+        </div>
+      </div>
+      <div class="stadium_pictures">
+        <% @stadium.pictures.each do |picture| %>
+          <%= cl_image_tag picture.key, height: 300, width: 500, crop: :fill %> <br><br>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <ul>
-    <li>
-      <p>Capicity : <%= @stadium.capacity %> persons</p>
-    </li>
-    <li>
-      <p>Energy class : <%= @stadium.energy_class %></p>
-    </li>
-    <li>
-      <p><%= @stadium.price %> $</strong> / day</p><strong>
-    </li>
-  </ul>
-
-  <%= link_to "Book this stadium !", new_stadium_booking_path(@stadium),class: "btn btn-success"  %><br><br>
-
-  <div class="d-flex" style="width: 30% ; height: 200px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div><br>
-
-  <div>
-  <%= link_to "Delete my stadium", stadium_path(@stadium), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
-  </div><br>
+  <div class="links">
+    <div class="d-flex justify-content-evenly">
+      <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
+      <%= link_to "Edit my stadium", edit_stadium_path(@stadium), class: "btn btn-primary" %>
+      <%= link_to "Delete my stadium", stadium_path(@stadium), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </div>
+  </div>
 
 </div>
