@@ -1,4 +1,8 @@
 <div class="container-booking">
   <h1>Book stadium</h1>
   <%= render 'form' %>
+
+  <%= link_to "Back to Stadium", stadium_path(@stadium), class: "btn btn-primary" %>
+  <%= link_to "Back to Stadiums list", stadia_path(@stadium), class: "btn btn-primary" %>
+
 </div>
