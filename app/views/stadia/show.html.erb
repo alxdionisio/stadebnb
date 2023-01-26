@@ -24,25 +24,7 @@
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
 
-            <div>
-              <% if @stadium.energy_class == "A+++" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601407/o0ahhsefr1vorgikl1gl.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "A" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601423/p5cpqfp8acfiys55eda8.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "B" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601412/g6ensukthyvqfsez3zs0.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "C" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601414/yk56v4moplqsnb5hw8yx.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "D" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601415/n9v3orncd1szjz0mya8o.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "E" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601417/ihflh9a2fdi1mhnwrynf.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "F" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601419/nrzowce61pybvnmt8blm.png", height: 200, width: 220, crop: :fill %>
-              <% elsif @stadium.energy_class == "G" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601422/xb6eg32qqfjrp02jn7ax.png", height: 200, width: 220, crop: :fill %>
-              <% end %>
-            </div>
+            <div><%= cl_image_tag @stadium.photo.key, height: 200, width: 280, crop: :fill %></div>
 
           </div>
 
