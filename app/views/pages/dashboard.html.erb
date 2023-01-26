@@ -20,7 +20,7 @@
           <p>Name: <%= booking.stadium.name %></p>
           <p>Start date: <%= booking.start_date %></p>
           <p><%= booking.end_date %></p>
-          <p><%= link_to "View details", booking_path(booking) %></p>
+          <p><%= link_to "View details", booking_path(booking), class: "btn btn-outline-primary" %></p>
         </li>
       <% end %>
     <% end %>
@@ -43,5 +43,8 @@
         </li>
       <% end %>
     <% end %>
+    <div><%= link_to "retourner à mon profile", profile_path, class: "btn btn-outline-primary" %></h3></div>
   </ul>
+
+
   <%end%>
