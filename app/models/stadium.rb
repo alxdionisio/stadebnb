@@ -8,7 +8,7 @@ class Stadium < ApplicationRecord
 
   validates :name, presence: true
   validates :location, presence: true
-  validates :stadium_description, presence: true
+  validates :stadium_description, presence: true, length: { minimum: 100 }
   validates :price, presence: true
   validates :user, presence: true
 

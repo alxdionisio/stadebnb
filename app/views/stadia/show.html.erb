@@ -9,10 +9,12 @@
       <div>
         <div>
           <div class="description"><%= @stadium.stadium_description %></div><br>
-          <div>Capicity : <%= @stadium.capacity %> persons</div>
-          <div>Energy class : <%= @stadium.energy_class %></div>
-          <div><%= @stadium.price %> $</strong> / day<strong></div>
-          <div class="links"><%= link_to "Book this stadium !", new_stadium_booking_path(@stadium),class: "btn btn-outline-light" %></div>
+
+          <div class="description-details">
+            <div>Capicity : <%= @stadium.capacity %> persons</div>
+            <div><%= @stadium.price %> $</strong> / day<strong></div>
+            <div class="d-flex justify-content-center"><%= link_to "Book this stadium !", new_stadium_booking_path(@stadium),class: "btn btn-outline-light" %></div><br><br><br><br>
+          </div>
 
           <div class="d-flex justify-content-evenly">
 
@@ -26,7 +28,7 @@
               <% if @stadium.energy_class == "A+++" %>
                 <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601407/o0ahhsefr1vorgikl1gl.png", height: 200, width: 220, crop: :fill %>
               <% elsif @stadium.energy_class == "A" %>
-                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601409/dycg1uhi5lih3qrzpzpr.png", height: 200, width: 220, crop: :fill %>
+                <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601423/p5cpqfp8acfiys55eda8.png", height: 200, width: 220, crop: :fill %>
               <% elsif @stadium.energy_class == "B" %>
                 <%= image_tag "https://res.cloudinary.com/di7k88pkv/image/upload/v1674601412/g6ensukthyvqfsez3zs0.png", height: 200, width: 220, crop: :fill %>
               <% elsif @stadium.energy_class == "C" %>
@@ -55,14 +57,11 @@
             <%# <% end %>
           <%# </div> %>
 
-
-
         </div>
       </div>
-
       <div class="stadium_pictures">
         <% @stadium.pictures.each do |picture| %>
-          <%= cl_image_tag picture.key, height: 300, width: 500, crop: :fill %><br><br>
+          <%= cl_image_tag picture.key, height: 300, width: 500, crop: :fill %> <br><br>
         <% end %>
       </div>
     </div>
