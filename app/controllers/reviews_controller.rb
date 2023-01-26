@@ -1,23 +1,23 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, only: %i[new create]
+  before_action :set_stadium, only: %i[new create]
 
   def new
   end
 
   def create
     @review = Review.new(review_params)
-    @review.booking = @booking
+    @review.stadium = @stadium
     if @review.save
-      redirect_to booking_path(@booking)
+      redirect_to stadium_path(@stadium)
     else
-      render 'bookings/show', status: :unprocessable_entity
+      render 'stadia/show', status: :unprocessable_entity
     end
   end
 
   private
 
-  def set_booking
-    @booking = Booking.find(params[:booking_id])
+  def set_stadium
+    @stadium = Stadium.find(params[:stadium_id])
   end
 
   def review_params

@@ -14,6 +14,7 @@ class StadiaController < ApplicationController
 
   def show
     @stadium = Stadium.find(params[:id])
+    @review = Review.new
     @markers = [{
       lat: @stadium.latitude,
       lng: @stadium.longitude,
