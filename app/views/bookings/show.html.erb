@@ -6,6 +6,8 @@
   <div class="booking-dates-details">
     <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
     <p><strong>End Date:</strong> <%= @booking.end_date %></p>
+    <% length = (@booking.end_date - @booking.start_date).to_i %>
+    <p><strong>Booking days:</strong> <%= length %> days</p>
   </div>
 
   <div class="booking-details">
@@ -17,7 +19,7 @@
   </div>
 
   <div class="booking-total-details">
-    <p><strong>Total Price:</strong> <%= @booking.total_price %> $</p>
+    <p><strong> Total Price: <%= @booking.stadium.price * length %> $</p>
   </div>
 
   <%# <%= simple_form_for [@booking, @review] do |f| %>
@@ -30,4 +32,4 @@
       <%= link_to "Back to Stadiums list", stadia_path, class: "btn btn-primary" %>
       <%= link_to "Back to My Bookings", bookings_path, class: "btn btn-primary" %>
     </div>
-</div>     wµµ
+</div>
