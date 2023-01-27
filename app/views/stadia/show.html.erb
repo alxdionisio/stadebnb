@@ -8,7 +8,19 @@
     <div class="main-container">
       <div>
         <div>
-          <div class="description"><%= @stadium.stadium_description %></div><br>
+
+          <div class="description">
+            <% unless @stadium.reviews.blank? %>
+              <% starfull = @stadium.reviews.sum(:rating)/ @stadium.reviews.count %>
+              <% starfull.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+              <% (5-starfull).times do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
+            <% end %><br><br>
+
+          <%= @stadium.stadium_description %></div><br>
 
           <div class="description-details">
             <div>Capicity : <%= @stadium.capacity %> persons</div>
@@ -38,19 +50,21 @@
   </div>
 
     <div class="second-container">
-      <h4><%= pluralize @stadium.reviews.size, "review" %><span> for </span><%= @stadium.name %>
-      <span>  - Rate :  </span>
+
+      <h3><%= pluralize @stadium.reviews.size, "review" %><span> for </span><%= @stadium.name %> </h3>
+      <h4>  Rate :
       <% if @stadium.reviews.blank? %>
-        <i> -- </i>
-      <% else %>
-        <%= @stadium.reviews.average(:rating).round(1) %><span> / 5 </span></h4><br>
-      <% end %>
+          <i> -- </i></h4><br><br>
+        <% else %>
+          <%= @stadium.reviews.average(:rating).round(1) %><span>/5</span></h4><br>
+        <% end %>
+
       <% if @stadium.reviews.blank? %>
         <p>Be the first to leave a review for <%= @stadium.name %></p>
       <% else %>
         <% @stadium.reviews.each do |review| %>
           <%= review.rating %>
-          <span> / 5  -   </span>
+          <span>/ 5  -   </span>
           <%= review.content %><br>
         <% end %>
       <% end %><br>
@@ -59,11 +73,10 @@
       <%= f.input :content, placeholder: "Leave your comment" %>
       <%= f.input :rating, placeholder: "Leave a rate between 1 and 5" %>
       <%= f.button :submit, class: "btn btn-outline-light" %><br><br>
-
       <% end %>
+
       </div>
     </div>
-
 
   <div class="links">
     <div class="d-flex justify-content-evenly">

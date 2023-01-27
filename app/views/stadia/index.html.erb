@@ -15,12 +15,20 @@
       <% @stadia.each do |stadium| %>
 
         <div class="stadium-card">
-          <h3><%=stadium.name%></h3>
-          <% stadium.reviews.map do |review| %>
-            <%= review.rating %>
-          <% end %>
 
-          <%= @rating %>
+          <div class="d-flex justify-content-end">
+            <% unless stadium.reviews.blank? %>
+              <% starfull = stadium.reviews.sum(:rating)/ stadium.reviews.count %>
+              <% starfull.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+              <% (5-starfull).times do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
+            <% end %>
+          </div>
+
+          <h3><%=stadium.name%></h3>
 
           <div class="pictures_stadium">
             <% stadium.pictures.each do |picture| %>
