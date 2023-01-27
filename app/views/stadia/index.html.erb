@@ -11,15 +11,17 @@
   </div>
 
   <div class="main-container">
-
     <div class="cards">
       <% @stadia.each do |stadium| %>
 
         <div class="stadium-card">
           <h3><%=stadium.name%></h3>
-            <% stadium.reviews.each do |review| %>
-              <%= review.rating %>
-            <% end %>
+          <% stadium.reviews.map do |review| %>
+            <%= review.rating %>
+          <% end %>
+
+          <%= @rating %>
+
           <div class="pictures_stadium">
             <% stadium.pictures.each do |picture| %>
               <%= cl_image_tag picture.key, height: 250, width: 350, crop: :fill %>
