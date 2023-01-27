@@ -5,6 +5,8 @@ class StadiaController < ApplicationController
 
     if params[:search].present?
       @stadia = Stadium.search_by_description_and_location(params[:search])
+      @reviews = Review.all
+      @rating = @reviews.average(:rating)
       set_markers
     else
       @stadia = Stadium.all
@@ -14,6 +16,7 @@ class StadiaController < ApplicationController
 
   def show
     @stadium = Stadium.find(params[:id])
+    @review = Review.new
     @markers = [{
       lat: @stadium.latitude,
       lng: @stadium.longitude,
