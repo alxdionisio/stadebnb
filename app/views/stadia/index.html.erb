@@ -15,7 +15,6 @@
       <% @stadia.each do |stadium| %>
 
         <div class="stadium-card">
-
           <div class="d-flex justify-content-end">
             <% unless stadium.reviews.blank? %>
               <% starfull = stadium.reviews.sum(:rating)/ stadium.reviews.count %>
@@ -28,8 +27,13 @@
             <% end %>
           </div>
 
-          <h3><%=stadium.name%></h3>
+          <div class="trophy">
+            <% if stadium.energy_class == "A+++" %>
+              <span><i class="fa-sharp fa-solid fa-trophy"></i> Stadium of the year 2023 <i class="fa-sharp fa-solid fa-trophy"></i></span>
+            <% end %>
+          </div>
 
+          <h3><%=stadium.name%></h3>
           <div class="pictures_stadium">
             <% stadium.pictures.each do |picture| %>
               <%= cl_image_tag picture.key, height: 250, width: 350, crop: :fill %>
