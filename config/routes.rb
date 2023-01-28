@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "bookings", to: "bookings#index"
   patch "settings", to: "pages#update"
   get "contact", to: "pages#contact"
+  get "start", to: "pages#start"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

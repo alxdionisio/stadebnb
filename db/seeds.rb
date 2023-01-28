@@ -315,6 +315,22 @@ picture41 = ActiveStorage::Blob.create_and_upload!(
   content_type: 'image/png'
 )
 
+image_path = Rails.root.join("app/assets/images/Contact/Alex.jpeg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture42 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpeg',
+  content_type: 'image/jpeg'
+)
+image_path = Rails.root.join("app/assets/images/Contact/Romain.jpeg")
+cloudinary_image = Cloudinary::Uploader.upload(image_path)
+picture43 = ActiveStorage::Blob.create_and_upload!(
+  io: URI.open(cloudinary_image['secure_url']),
+  filename: 'example.jpeg',
+  content_type: 'image/jpeg'
+)
+
+
 p "Cleaning database..."
 User.destroy_all
 Stadium.destroy_all
