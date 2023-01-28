@@ -24,7 +24,7 @@
 
           <div class="description-details">
             <div>Capicity : <%= @stadium.capacity %> persons</div>
-            <div><%= @stadium.price %> $</strong> / day<strong></div><br>
+            <div><%= @stadium.price %> $<strong> / day</strong></div><br>
             <div class="d-flex justify-content-center"><%= link_to "Book this stadium !", new_stadium_booking_path(@stadium),class: "btn btn-outline-light" %></div><br><br><br><br>
           </div>
 
@@ -87,5 +87,4 @@
       <%end %>
     </div>
   </div>
-
 </div>
