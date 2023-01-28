@@ -1,5 +1,16 @@
 <div class="container-booking">
   <h1>Book stadium</h1>
+
+  <div class="booking-box col-md-4">
+  <div class="listing-price">
+    <h4><%= @stadium.price %> $</h4>
+    <p> per day (service fees included)</p><br>
+  </div>
+
+  <div class="booking-form">
+    <h4>Book your appointment</h4>
+    <p>Choose your date and time</p>
+
   <%= render 'form' %>
 
   <%= link_to "Back to Stadium", stadium_path(@stadium), class: "btn btn-primary" %>

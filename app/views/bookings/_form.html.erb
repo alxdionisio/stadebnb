@@ -1,16 +1,7 @@
-<div class="booking-box col-md-4">
-  <div class="listing-price">
-    <h4><%= @stadium.price %> $</h4>
-    <p>per day (service fees included)</p><br>
-  </div>
-
-  <div class="booking-form">
-    <h4>Book your appointment</h4>
-    <p>Choose your date and time</p>
-    <br>
-
-<%= simple_form_for [@stadium, @booking], data: { controller: 'flatpickr' } do |f| %>
-  <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-  <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-  <%= f.submit 'Schedule your appointment' %>
-<% end %>
+<div id='stadium-booking-dates' data-unavailable="<%= @stadium.unavailable_dates.to_json %>">
+  <%= simple_form_for [@stadium, @booking], data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :start_date, as: :string, placeholder: "Start date", input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_date, as: :string, placeholder: "End date", input_html: { data: { flatpickr_target: "endTime" } } %>
+    <%= f.submit 'Schedule your appointment' %>
+  <% end %>
+</div>

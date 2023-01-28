@@ -20,10 +20,10 @@ class Stadium < ApplicationRecord
     tsearch: { prefix: true }
   }
 
-  # def is_available?(start_date, end_date)
-  #   bookings.each do |b|
-  #     return false if (b.starts_at..b.ends_at).overlaps?(start_date.to_date..end_date.to_date)
-  #   end
-  #   true
-  # end
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
+
 end
