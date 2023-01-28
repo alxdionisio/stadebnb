@@ -33,7 +33,7 @@ class StadiaController < ApplicationController
     @stadium = Stadium.new(stadium_params)
     @stadium.user = current_user
     if @stadium.save
-      redirect_to stadium_path(@stadium)
+      redirect_to stadia_path
     else
       render :new
     end

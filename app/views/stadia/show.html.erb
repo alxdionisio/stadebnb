@@ -34,8 +34,13 @@
               data-map-markers-value="<%= @markers.to_json %>"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
-            <div><%= cl_image_tag @stadium.photo.key, height: 190, width: 280, crop: :fill %></div>
-          </div>
+            <div>
+              <% if @stadium.photo.key? %>
+                <%= cl_image_tag @stadium.photo.key, height: 190, width: 280, crop: :fill %></div>
+              <% else %>
+                <img style="height:190px; width:280px;"src="https://res.cloudinary.com/di7k88pkv/image/upload/v1674915880/doxbpq4cehvl4gqzn6rg.png" alt="">
+              <% end %>
+            </div>
         </div>
       </div>
 
